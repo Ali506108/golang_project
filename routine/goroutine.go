@@ -1,10 +1,17 @@
 package routine
 
-func concurency_main() {
-	urls := []string{
-		"https://google.com", "https://uber.com",
-		"https://github.com", "htps://golang.org",
-	}
+import (
+	"fmt"
+)
 
-	results := make(chan statusReport)
+func concurency_main() {
+
+	fmt.Println("Hello world!")
+
+	country := make(map[string]string)
+
+	country["U.K"] = "London"
+
+	fmt.Println(country)
+
 }

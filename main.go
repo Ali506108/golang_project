@@ -60,6 +60,18 @@ type statusReport struct {
 	err    error
 }
 
+func work_with_concurency(url string) {
+	resp, err := http.Get(url)
+
+	if err != nil {
+		fmt.Printf("[DOWN] %s : %v \n", url, err)
+		return
+	}
+	defer resp.Body.Close()
+
+	fmt.Printf("[%d] %s \n", url, resp.StatusCode)
+}
+
 func checkingUrl(url string) {
 	resp, err := http.Get(url)
 
