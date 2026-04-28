@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"strings"
 	"time"
 )
 
@@ -99,6 +100,30 @@ func checkUrl(url string) {
 	fmt.Printf("[%d] %s\n", resp.StatusCode, url)
 }
 
+func checkUrlForValid(url string) {
+	resp, err := http.Get(url)
+
+	if err != nil {
+		fmt.Printf("[DOWN] %s : %v\n", url, err)
+	}
+	defer resp.Body.Close()
+	fmt.Printf("[%d] %s \n", resp.StatusCode, url)
+}
+
+func addPrefixWithLen(origin string) (res string, length int) {
+	res = "Prefix_" + origin
+	length = len(res)
+
+	return res, length
+}
+
+func factorialN(n int) int {
+	if n < 0 {
+		return 1
+	}
+	return factorialN(n-1) * n
+}
+
 func main() {
 
 	urls := []string{
@@ -165,8 +190,22 @@ func main() {
 		fmt.Println("i =", i)
 	}
 
+	s_data := strings.Map(func(r rune) rune { return r + 1 }, "SDWS")
+
+	fmt.Println(s_data)
+
+	data := adder()
+	fmt.Println(data(5))
 }
 
 func someFunction() (int, int) {
 	return 1, 4
+}
+
+func adder() func(int) int {
+	sum := 0
+	return func(x int) int {
+		sum += x
+		return sum
+	}
 }

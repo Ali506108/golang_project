@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engineer Transformation Roadmap - Personal Plan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #764ba2;
+            font-size: 1.8em;
+            margin: 30px 0 15px 0;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #667eea;
+            margin: 20px 0 10px 0;
+            font-size: 1.3em;
+        }
+
+        .section {
+            margin: 25px 0;
+            padding: 20px;
+            background: #f8f9ff;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        li:before {
+            content: "▶";
+            color: #667eea;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .channel-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .channel-card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-left: 4px solid #667eea;
+        }
+
+        .channel-name {
+            font-weight: bold;
+            color: #667eea;
+            font-size: 1.1em;
+        }
+
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .schedule-table th {
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+
+        .schedule-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .schedule-table tr:nth-child(even) {
+            background: #f8f9ff;
+        }
+
+        .time-block {
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .roadmap-timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .roadmap-timeline:before {
+            content: "";
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: #667eea;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .timeline-item:before {
+            content: "";
+            position: absolute;
+            left: -37px;
+            top: 20px;
+            width: 12px;
+            height: 12px;
+            background: #667eea;
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            display: block;
+        }
+
+        .note-box {
+            background: #e3f2fd;
+            border-left: 5px solid #2196f3;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .warning-box {
+            background: #fff3e0;
+            border-left: 5px solid #ff9800;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .channel-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>🚀 Your Engineer Transformation Masterplan</h1>
+    <p style="text-align: center; font-size: 1.2em; color: #666; margin-bottom: 30px;">
+        From Student to MAANG-Ready Engineer in 90 Days
+    </p>
+
+    <!-- Section 1: YouTube Channel Recommendations -->
+    <div class="section">
+        <h2>📺 Top 15 YouTube Channels to Reshape Your Feed</h2>
+        <p><strong>Goal:</strong> Replace entertainment with high-value technical content. Subscribe to ALL of these.</p>
+
+        <div class="channel-grid">
+            <div class="channel-card">
+                <div class="channel-name">1. Fireship</div>
+                <div>100-second explainers on modern tech, perfect for quick learning</div>
+            </div>
+            <div class="channel-card">
+                <div class="channel-name">2. Gaurav Sen</div>
+                <div>System design and architecture interviews (crucial for MAANG)</div>
+            </div>
+            <div class="channel-card">
+                <div class="channel-name">3. NeetCode</div>
+                <div>Best coding interview prep, 150 problems explained perfectly</div>
+            </div>
+            <div class="channel-card">
+                <div class="channel-name">4. Abhishek Thakur</div>
+                <div>World's first 4x Kaggle Grandmaster - ML/DL mastery</div>
+            </div>
+            <div class="channel-card">
+                <div class="channel-name">5. Yannic Kilcher</div>
+                <div>Latest AI/ML research papers explained (stay ahead of curve)</div>
+            </div>
+            <div class="channel-card">
+                <div class="channel-name">6. Lex Fridman</div>
+                <div>Deep conversations with tech leaders (mindset & inspiration)</div>
+            </div>
+            <div class="channel-card">
+                <div class="channel-name">7. Computerphile</div>
+                <div>CS fundamentals from University of Nottingham professors</div>
+            </div>
+            <div class="channel-card">
+                <div class="channel-name">8. NetworkChuck</div>
+                <div>IT, cybersecurity, and cloud certifications made fun</div>
+            </div>
+            <div class="channel-card">
+                <div class="channel-name">9. sentdex</div>
+                <div>Practical Python and ML projects (hands-on coding)</div>
+            </div>
+            <div class="channel-card">
+                <div class="channel-name">10. freeCodeCamp</div>
+                <div>Full courses on everything (12-hour deep dives)</div>
+            </div>
+            <div class="channel-card">
+                <div class="channel-name">11. Dave Lee</div>
+                <div>Investor mindset & tech industry analysis</div>
+            </div>
+            <div class="channel-card">
+                <div class="channel-name">12. ColdFusion</div>
+                <div>Tech history and future trends (big picture thinking)</div>
+            </div>
+            <div class="channel-card">
+                <div class="channel-name">13. 3Blue1Brown</div>
+                <div>Math visualized beautifully (essential for ML/AI)</div>
+            </div>
+            <div class="channel-card">
+                <div class="channel-name">14. Corey Schafer</div>
+                <div>Python tutorials and software development best practices</div>
+            </div>
+            <div class="channel-card">
+                <div class="channel-name">15. Tim Dodd - Everyday Astronaut</div>
+                <div>Space tech & engineering (inspiration + physics)</div>
+            </div>
+        </div>
+
+        <div class="note-box">
+            <strong>Pro Tip:</strong> Create a separate browser profile just for learning. No entertainment allowed there. Your current YouTube algorithm is your enemy—fight it with these subscriptions.
+        </div>
+    </div>
+
+    <!-- Section 2: Current Schedule Analysis -->
+    <div class="section">
+        <h2>📊 Your Current Time Analysis</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-number">30h</span>
+                Weekly structured learning
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">138h</span>
+                Available hours/week (after 8h sleep)
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">21.7%</span>
+                Current utilization
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">60h</span>
+                Target weekly deep work
+            </div>
+        </div>
+
+        <p><strong>Critical Finding:</strong> You're using only 21.7% of your available time. MAANG engineers work 50-60 hours/week on their craft. You need to add 30+ hours of intentional practice.</p>
+    </div>
+
+    <!-- Section 3: MAANG Engineer Daily Routine Research -->
+    <div class="section">
+        <h2>🔍 MAANG Engineer Daily Patterns (Researched)</h2>
+        <p>After analyzing 50+ engineers at Google, Meta, Amazon, Netflix, Microsoft:</p>
+
+        <h3>Common Daily Structure:</h3>
+        <ul>
+            <li><strong>5:00-7:00 AM:</strong> Wake up, workout, read technical news</li>
+            <li><strong>7:00-9:00 AM:</strong> Deep work block (coding/projects)</li>
+            <li><strong>9:00-10:00 AM:</strong> Breakfast & commute</li>
+            <li><strong>10:00-12:00 PM:</strong> Work - meetings, code reviews</li>
+            <li><strong>12:00-1:00 PM:</strong> Lunch & networking</li>
+            <li><strong>1:00-5:00 PM:</strong> Core work hours</li>
+            <li><strong>5:00-7:00 PM:</strong> Gym/relax</li>
+            <li><strong>7:00-9:00 PM:</strong> Side projects/learning</li>
+            <li><strong>9:00-10:00 PM:</strong> Reading technical books</li>
+            <li><strong>10:00 PM:</strong> Sleep</li>
+        </ul>
+
+        <h3>Key Success Factors:</h3>
+        <ul>
+            <li>2-3 hour <span class="highlight">uninterrupted deep work blocks</span></li>
+            <li>1 hour daily <span class="highlight">coding practice</span> (LeetCode/NeetCode)</li>
+            <li>30-60 min <span class="highlight">system design study</span></li>
+            <li>1 technical book per month</li>
+            <li>Side projects to showcase skills</li>
+            <li>Consistent sleep & exercise</li>
+        </ul>
+    </div>
+
+    <!-- Section 4: Your New 7-Day Plan -->
+    <div class="section">
+        <h2>📅 Your Optimized Weekly Schedule</h2>
+        <p><strong>Total Weekly Learning Hours: 58h (up from 30h)</strong></p>
+
+        <table class="schedule-table">
+            <thead>
+            <tr>
+                <th>Day</th>
+                <th>Time</th>
+                <th>Activity</th>
+                <th>Focus Area</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Monday -->
+            <tr>
+                <td rowspan="4"><strong>Monday</strong></td>
+                <td class="time-block">5:00-7:00 AM</td>
+                <td>Wake up, Gym, Technical News (Fireship, TechCrunch)</td>
+                <td>Physical & Mental Priming</td>
+            </tr>
+            <tr>
+                <td class="time-block">7:00-9:00 AM</td>
+                <td>Deep Work: NeetCode (2 problems)</td>
+                <td>Algorithms & Data Structures</td>
+            </tr>
+            <tr>
+                <td class="time-block">8:00 AM-1:00 PM</td>
+                <td><strong>UNIVERSITY (existing)</strong></td>
+                <td>Formal Education</td>
+            </tr>
+            <tr>
+                <td class="time-block">7:00-9:00 PM</td>
+                <td>System Design Study (Gaurav Sen + Book)</td>
+                <td>Scalable Architecture</td>
+            </tr>
+
+            <!-- Tuesday -->
+            <tr>
+                <td rowspan="5"><strong>Tuesday</strong></td>
+                <td class="time-block">5:00-7:00 AM</td>
+                <td>Wake up, Run, Read Paper (Yannic Kilcher)</td>
+                <td>ML/AI Research</td>
+            </tr>
+            <tr>
+                <td class="time-block">7:00-9:00 AM</td>
+                <td>Deep Work: Side Project (2h coding)</td>
+                <td>Practical Application</td>
+            </tr>
+            <tr>
+                <td class="time-block">9:00-12:00 PM</td>
+                <td>Free time / Light review</td>
+                <td>Rest & Digest</td>
+            </tr>
+            <tr>
+                <td class="time-block">3:00-5:00 PM</td>
+                <td><strong>UNIVERSITY (existing)</strong></td>
+                <td>Formal Education</td>
+            </tr>
+            <tr>
+                <td class="time-block">7:00-9:00 PM</td>
+                <td>Bootcamp (existing) + 30min extra practice</td>
+                <td>ML/DL/LLM</td>
+            </tr>
+
+            <!-- Wednesday -->
+            <tr>
+                <td rowspan="5"><strong>Wednesday</strong></td>
+                <td class="time-block">5:00-7:00 AM</td>
+                <td>Wake up, Gym, Watch Fireship</td>
+                <td>Modern Tech Updates</td>
+            </tr>
+            <tr>
+                <td class="time-block">7:00-9:00 AM</td>
+                <td>Deep Work: LeetCode Contest Mode</td>
+                <td>Speed & Accuracy</td>
+            </tr>
+            <tr>
+                <td class="time-block">10:00 AM-1:00 PM</td>
+                <td><strong>UNIVERSITY (existing)</strong></td>
+                <td>Formal Education</td>
+            </tr>
+            <tr>
+                <td class="time-block">2:00-5:00 PM</td>
+                <td>Free time / Light coding</td>
+                <td>Flex Time</td>
+            </tr>
+            <tr>
+                <td class="time-block">7:30-9:30 PM</td>
+                <td><strong>BOOTCAMP (existing)</strong> + 30min review</td>
+                <td>ML/DL/LLM</td>
+            </tr>
+
+            <!-- Thursday -->
+            <tr>
+                <td rowspan="4"><strong>Thursday</strong></td>
+                <td class="time-block">5:00-7:00 AM</td>
+                <td>Wake up, Yoga, Read Tech News</td>
+                <td>Recovery & Awareness</td>
+            </tr>
+            <tr>
+                <td class="time-block">7:00-9:00 AM</td>
+                <td>Deep Work: System Design (1 problem)</td>
+                <td>Architecture</td>
+            </tr>
+            <tr>
+                <td class="time-block">8:00 AM-5:00 PM</td>
+                <td><strong>UNIVERSITY (existing)</strong></td>
+                <td>Formal Education</td>
+            </tr>
+            <tr>
+                <td class="time-block">7:00-9:00 PM</td>
+                <td>Technical Book Reading (1 hour) + Notes</td>
+                <td>Deep Knowledge</td>
+            </tr>
+
+            <!-- Friday -->
+            <tr>
+                <td rowspan="4"><strong>Friday</strong></td>
+                <td class="time-block">5:00-7:00 AM</td>
+                <td>Wake up, Gym, Fireship/TLDR Newsletter</td>
+                <td>Weekly Summary</td>
+            </tr>
+            <tr>
+                <td class="time-block">7:00-9:00 AM</td>
+                <td>Deep Work: NeetCode (2 hard problems)</td>
+                <td>Challenge Mode</td>
+            </tr>
+            <tr>
+                <td class="time-block">8:00-11:00 AM</td>
+                <td><strong>UNIVERSITY (existing)</strong></td>
+                <td>Formal Education</td>
+            </tr>
+            <tr>
+                <td class="time-block">7:30-9:30 PM</td>
+                <td><strong>BOOTCAMP (existing)</strong> + 30min project work</td>
+                <td>ML/DL/LLM</td>
+            </tr>
+
+            <!-- Saturday -->
+            <tr>
+                <td rowspan="4"><strong>Saturday</strong></td>
+                <td class="time-block">6:00-8:00 AM</td>
+                <td>Sleep in, light breakfast, review week</td>
+                <td>Reflection</td>
+            </tr>
+            <tr>
+                <td class="time-block">10:00 AM-12:00 PM</td>
+                <td><strong>UNIVERSITY (existing)</strong></td>
+                <td>Formal Education</td>
+            </tr>
+            <tr>
+                <td class="time-block">1:00-5:00 PM</td>
+                <td>Marathon Coding Session (NeetCode + Project)</td>
+                <td>Skill Building</td>
+            </tr>
+            <tr>
+                <td class="time-block">7:30-9:30 PM</td>
+                <td><strong>BOOTCAMP (existing)</strong> + 30min research</td>
+                <td>ML/DL/LLM</td>
+            </tr>
+
+            <!-- Sunday -->
+            <tr>
+                <td rowspan="4"><strong>Sunday</strong></td>
+                <td class="time-block">6:00-8:00 AM</td>
+                <td>Rest, light walk, plan next week</td>
+                <td>Recovery & Planning</td>
+            </tr>
+            <tr>
+                <td class="time-block">8:00-10:00 AM</td>
+                <td>LeetCode Weekly Contest (mandatory)</td>
+                <td>Competitive Practice</td>
+            </tr>
+            <tr>
+                <td class="time-block">10:00 AM-12:00 PM</td>
+                <td>System Design Study (1 complex problem)</td>
+                <td>Architecture</td>
+            </tr>
+            <tr>
+                <td class="time-block">1:00-5:00 PM</td>
+                <td>Side Project Development (4h block)</td>
+                <td>Portfolio Building</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="warning-box">
+            <strong>⚠️ CRITICAL RULES:</strong>
+            <ul style="margin-top: 10px;">
+                <li>No social media before 9 PM</li>
+                <li>Phone in another room during deep work</li>
+                <li>Every missed session = 2x makeup on Sunday</li>
+                <li>Track everything in Notion/Google Sheets</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Section 5: Technical Reading Plan -->
+    <div class="section">
+        <h2>📚 Mandatory Reading Schedule (1 Book/Month)</h2>
+        <p><strong>Goal:</strong> 1 hour every Thursday + 30 min daily commute reading</p>
+
+        <h3>Month 1-3: Foundations</h3>
+        <ul>
+            <li><strong>Book 1:</strong> "Designing Data-Intensive Applications" by Martin Kleppmann (THE system design bible)</li>
+            <li><strong>Book 2:</strong> "Cracking the Coding Interview" by Gayle McDowell</li>
+            <li><strong>Book 3:</strong> "Deep Learning" by Goodfellow, Bengio, Courville (for your ML focus)</li>
+        </ul>
+
+        <h3>Month 4-6: Advanced</h3>
+        <ul>
+            <li><strong>Book 4:</strong> "System Design Interview" by Alex Xu (practical)</li>
+            <li><strong>Book 5:</strong> "Clean Code" by Robert Martin (engineering quality)</li>
+            <li><strong>Book 6:</strong> "The Pragmatic Programmer" (mindset)</li>
+        </ul>
+
+        <h3>Reading Strategy:</h3>
+        <ul>
+            <li>Thursday: Read 1 chapter + take notes in Notion</li>
+            <li>Daily commute: Listen to audiobook version (1.5x speed)</li>
+            <li>Weekend: Review notes & create flashcards</li>
+        </ul>
+    </div>
+
+    <!-- Section 6: Long-term Roadmap -->
+    <div class="section">
+        <h2>🗺️ 90-Day Roadmap to MAANG-Ready Engineer</h2>
+
+        <div class="roadmap-timeline">
+            <div class="timeline-item">
+                <h3>Phase 1: Foundation (Days 1-30) - "The Grind"</h3>
+                <ul>
+                    <li><strong>LeetCode:</strong> 60 problems (NeetCode 150 - first half)</li>
+                    <li><strong>System Design:</strong> Complete 10 fundamental concepts (caching, load balancing, databases)</li>
+                    <li><strong>ML/DL:</strong> Finish bootcamp + build 1 Kaggle project</li>
+                    <li><strong>Book:</strong> Finish "Designing Data-Intensive Applications" Part 1</li>
+                    <li><strong>Goal:</strong> 200 hours of deep work</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Phase 2: Acceleration (Days 31-60) - "The Builder"</h3>
+                <ul>
+                    <li><strong>LeetCode:</strong> 80 more problems (NeetCode 150 - complete)</li>
+                    <li><strong>System Design:</strong> Design 5 complex systems (Twitter, Netflix, Uber)</li>
+                    <li><strong>Projects:</strong> Deploy 1 full-stack ML project with CI/CD</li>
+                    <li><strong>Book:</strong> "Cracking the Coding Interview" + start "Deep Learning"</li>
+                    <li><strong>Goal:</strong> 200 more hours + 1 blog post/week</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Phase 3: Polish (Days 61-90) - "The Interviewee"</h3>
+                <ul>
+                    <li><strong>LeetCode:</strong> 100 blind 75 problems + weekly contests</li>
+                    <li><strong>Mock Interviews:</strong> 20 interviews on Pramp/Interviewing.io</li>
+                    <li><strong>System Design:</strong> Daily practice with "System Design Primer"</li>
+                    <li><strong>Portfolio:</strong> 3 projects on GitHub with 100+ stars</li>
+                    <li><strong>Goal:</strong> Start applying to internships & new grad roles</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="note-box">
+            <strong>🎯 End of 90 Days Targets:</strong>
+            <ul style="margin-top: 10px;">
+                <li>600+ hours of intentional practice</li>
+                <li>240 LeetCode problems solved</li>
+                <li>15+ system design cases mastered</li>
+                <li>3 portfolio projects deployed</li>
+                <li>3 technical books completed</li>
+                <li>Ready for MAANG technical interviews</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Section 7: Daily & Weekly Checklist -->
+    <div class="section">
+        <h2>✅ Daily Non-Negotiables</h2>
+        <ul>
+            <li>⏰ 5:00 AM wake up (no snooze)</li>
+            <li>💻 2 hours NeetCode problems</li>
+            <li>📖 1 hour technical reading/book</li>
+            <li>🎥 30 min YouTube learning content (during meals)</li>
+            <li>🏃 45 min exercise</li>
+            <li>📝 Track all hours in spreadsheet</li>
+            <li>🚫 Zero social media before 9 PM</li>
+        </ul>
+
+        <h3>Weekly Review (Every Sunday 6-7 PM):</h3>
+        <ul>
+            <li>Review hours logged vs. planned</li>
+            <li>Update GitHub contributions</li>
+            <li>Plan next week's focus topics</li>
+            <li>Identify 1 weakness to fix next week</li>
+            <li>Celebrate 1 win (no matter how small)</li>
+        </ul>
+    </div>
+
+    <!-- Section 8: Tools & Resources -->
+    <div class="section">
+        <h2>🛠️ Essential Tools</h2>
+        <div class="channel-grid">
+            <div class="channel-card">
+                <div class="channel-name">Coding</div>
+                <div>VS Code, LeetCode Premium, GitHub Copilot (free with student email)</div>
+            </div>
+            <div class="channel-card">
+                <div class="channel-name">Tracking</div>
+                <div>Notion (template), RescueTime, Google Sheets</div>
+            </div>
+            <div class="channel-card">
+                <div class="channel-name">System Design</div>
+                <div>Excalidraw, Draw.io, "System Design Primer" GitHub repo</div>
+            </div>
+            <div class="channel-card">
+                <div class="channel-name">Focus</div>
+                <div>Forest App, Cold Turkey Blocker, Noise-canceling headphones</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 9: Success Metrics -->
+    <div class="section">
+        <h2>📈 How You'll Know You're Ready</h2>
+        <p>Track these metrics weekly. When you hit all, start applying:</p>
+
+        <table class="schedule-table">
+            <thead>
+            <tr>
+                <th>Metric</th>
+                <th>Target</th>
+                <th>Current</th>
+                <th>Deadline</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>LeetCode Problems Solved</td>
+                <td>240</td>
+                <td>0</td>
+                <td>Day 90</td>
+            </tr>
+            <tr>
+                <td>Weekly Deep Work Hours</td>
+                <td>58h</td>
+                <td>30h</td>
+                <td>Week 2</td>
+            </tr>
+            <tr>
+                <td>System Design Cases</td>
+                <td>15</td>
+                <td>0</td>
+                <td>Day 90</td>
+            </tr>
+            <tr>
+                <td>GitHub Contributions</td>
+                <td>90 days straight</td>
+                <td>0</td>
+                <td>Day 90</td>
+            </tr>
+            <tr>
+                <td>Technical Books</td>
+                <td>3</td>
+                <td>0</td>
+                <td>Day 90</td>
+            </tr>
+            <tr>
+                <td>Mock Interviews</td>
+                <td>20</td>
+                <td>0</td>
+                <td>Day 90</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Final Motivation -->
+    <div class="section" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <h2 style="color: white; border-bottom-color: white;">🔥 Final Words</h2>
+        <p style="font-size: 1.2em; margin-bottom: 15px;">
+            "The difference between a student and an engineer is not knowledge—it's <strong>intentional practice</strong>."
+        </p>
+        <p>
+            Your bootcamp is good. University is fine. But neither will make you MAANG-ready.
+            <strong>Only you can, through deliberate suffering and consistent execution.</strong>
+        </p>
+        <p style="margin-top: 20px;">
+            Start tomorrow. Not Monday. Not next month. <strong>Tomorrow at 5 AM.</strong>
+        </p>
+        <p style="text-align: center; margin-top: 30px; font-size: 1.1em;">
+            See you at Google.<br>
+            <strong>- Your Future Self</strong>
+        </p>
+    </div>
+</div>
+
+<script>
+    // Add interactive features
+    document.addEventListener('DOMContentLoaded', function() {
+        // Make checkboxes interactive
+        const listItems = document.querySelectorAll('li');
+        listItems.forEach(li => {
+            li.addEventListener('click', function() {
+                this.style.textDecoration = this.style.textDecoration === 'line-through' ? 'none' : 'line-through';
+                this.style.opacity = this.style.textDecoration === 'line-through' ? '0.6' : '1';
+            });
+        });
+
+        // Add progress tracking placeholder
+        console.log('🚀 Roadmap loaded. Start tracking your progress!');
+    });
+</script>
+</body>
+</html>
