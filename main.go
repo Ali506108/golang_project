@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"os"
+	"strconv"
 	"strings"
 	"time"
 )
@@ -85,6 +87,20 @@ func checkingUrl(url string) {
 	fmt.Printf("[%d] %s\n", resp.StatusCode, url)
 }
 
+func learn_check(url string) {
+	response, err := http.Get(url)
+
+	if err != nil {
+		fmt.Printf("[DOWN] %s\n", response.StatusCode, url)
+		return
+	}
+
+	defer response.Body.Close()
+
+	fmt.Printf("[%d] %s\n", response.StatusCode, url)
+
+}
+
 func checkUrl(url string) {
 	resp, err := http.Get(url)
 	if err != nil {
@@ -124,8 +140,50 @@ func factorialN(n int) int {
 	return factorialN(n-1) * n
 }
 
+type ar2x2 [2][2]int64
+
+func addNumber(a, b ar2x2) ar2x2 {
+	num := ar2x2{}
+	for i := 0; i < 2; i++ {
+		for j := 0; j < 2; j++ {
+			num[i][j] = a[i][j] + b[i][j]
+		}
+	}
+	return num
+}
+
+func (a *ar2x2) addNumber(b ar2x2) {
+	for i := 0; i < 2; i++ {
+		for j := 0; j < 2; j++ {
+			a[i][j] = a[i][j] + b[i][j]
+		}
+	}
+}
+
 func main() {
 
+	if len(os.Args) != 9 {
+		fmt.Println("Needed 8 integer")
+		return
+	}
+
+	k := [8]int64{}
+
+	for index, i := range os.Args[1:] {
+		v, err := strconv.Atoi(i)
+		if err != nil {
+			fmt.Println(err)
+			return
+		}
+		k[index] = int64(v)
+	}
+	a := ar2x2{{k[0], k[1]}, {k[2], k[3]}}
+	b := ar2x2{{k[4], k[5]}, {k[6], k[7]}}
+
+	fmt.Println("Traditional a+b ", addNumber(a, b))
+	a.addNumber(b)
+	fmt.Println("a+b", a)
+	
 	urls := []string{
 		"https://google.com",
 		"https://facebook.com",
