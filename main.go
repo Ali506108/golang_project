@@ -87,20 +87,6 @@ func checkingUrl(url string) {
 	fmt.Printf("[%d] %s\n", resp.StatusCode, url)
 }
 
-func learn_check(url string) {
-	response, err := http.Get(url)
-
-	if err != nil {
-		fmt.Printf("[DOWN] %s\n", response.StatusCode, url)
-		return
-	}
-
-	defer response.Body.Close()
-
-	fmt.Printf("[%d] %s\n", response.StatusCode, url)
-
-}
-
 func checkUrl(url string) {
 	resp, err := http.Get(url)
 	if err != nil {
@@ -114,6 +100,58 @@ func checkUrl(url string) {
 		}
 	}(resp.Body)
 	fmt.Printf("[%d] %s\n", resp.StatusCode, url)
+}
+
+func checkUrlForValid(url string) {
+	resp, err := http.Get(url)
+
+	if err != nil {
+		fmt.Printf("[DOWN] %s : %v\n", url, err)
+	}
+	defer resp.Body.Close()
+	fmt.Printf("[%d] %s \n", resp.StatusCode, url)
+}
+
+func addPrefixWithLen(origin string) (res string, length int) {
+	res = "Prefix_" + origin
+	length = len(res)
+
+	return res, length
+}
+
+func factorialN(n int) int {
+	if n < 0 {
+		return 1
+	}
+	return factorialN(n-1) * n
+}
+
+func factorialN_for_commit(n int) int {
+	if n < 0 {
+		return 1
+	}
+
+	return factorialN_for_commit(n-1) * n
+}
+
+type ar2x2 [2][2]int64
+
+func addNumber(a, b ar2x2) ar2x2 {
+	num := ar2x2{}
+	for i := 0; i < 2; i++ {
+		for j := 0; j < 2; j++ {
+			num[i][j] = a[i][j] + b[i][j]
+		}
+	}
+	return num
+}
+
+func (a *ar2x2) addNumber(b ar2x2) {
+	for i := 0; i < 2; i++ {
+		for j := 0; j < 2; j++ {
+			a[i][j] = a[i][j] + b[i][j]
+		}
+	}
 }
 
 func checkUrlForValid(url string) {
@@ -183,8 +221,31 @@ func main() {
 	fmt.Println("Traditional a+b ", addNumber(a, b))
 	a.addNumber(b)
 	fmt.Println("a+b", a)
-	
+
+	if len(os.Args) != 9 {
+		fmt.Errorf("needed 8 integer")
+		return
+	}
+
+	k := [8]int64{}
+
+	for index, i := range os.Args[1:] {
+		v, err := strconv.Atoi(i)
+		if err != nil {
+			fmt.Println(err)
+			return
+		}
+		k[index] = int64(v)
+	}
+	a := ar2x2{{k[0], k[1]}, {k[2], k[3]}}
+	b := ar2x2{{k[4], k[5]}, {k[6], k[7]}}
+
+	fmt.Println("Traditional a+b ", addNumber(a, b))
+	a.addNumber(b)
+	fmt.Println("a+b", a)
+
 	urls := []string{
+		"https://golang.com",
 		"https://google.com",
 		"https://facebook.com",
 		"https://golang.org",
@@ -199,15 +260,10 @@ func main() {
 	fmt.Println("Took ", time.Since(start))
 	fmt.Printf("Took %v\n", time.Since(start))
 
-	//TIP <p>Press <shortcut actionId="ShowIntentionActions"/> when your caret is at the underlined text
-	// to see how GoLand suggests fixing the warning.</p><p>Alternatively, if available, click the lightbulb to view possible fixes.</p>
-
 	s := "gopher"
 	fmt.Printf("Hello and welcome, %s!\n", s)
 
 	for i := 1; i <= 5; i++ {
-		//TIP <p>To start your debugging session, right-click your code in the editor and select the Debug option.</p> <p>We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-		// for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.</p>
 		fmt.Println("i =", 100/i)
 	}
 
