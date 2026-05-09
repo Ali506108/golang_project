@@ -4,14 +4,24 @@ import (
 	"fmt"
 	"io"
 	"net/http"
-	"os"
-	"strconv"
+	"slices"
+	"sort"
 	"strings"
 	"time"
+	"unicode"
 )
 
 // TIP <p>To run your code, right-click the code and select <b>Run</b>.</p> <p>Alternatively, click
 // the <icon src="AllIcons.Actions.Execute"/> icon in the gutter and select the <b>Run</b> menu item from here.</p>
+
+func sum(returnString string, nums ...int) (string, int) {
+	total := 0
+	for _, v := range nums {
+		total += v
+	}
+	return returnString, total
+
+}
 
 type Movie struct {
 	title       string
@@ -154,95 +164,69 @@ func (a *ar2x2) addNumber(b ar2x2) {
 	}
 }
 
-func checkUrlForValid(url string) {
-	resp, err := http.Get(url)
+//Нам дана строка следующего вида “съешь ещё этих мягких французских булок, да
+//выпей чаю”. Используя тип данных map посчитайте количество повторений
+//символов в этой строке. В результате выведите на экран список символ -
+//количество повторений
+//Пример: Для строки “Старт” вывод будет следующий
+//с - 1
+//т - 2
+//а - 1
+//р - 1
 
-	if err != nil {
-		fmt.Printf("[DOWN] %s : %v\n", url, err)
-	}
-	defer resp.Body.Close()
-	fmt.Printf("[%d] %s \n", resp.StatusCode, url)
-}
+func countOfDuplicateWord(word string) {
+	count := make(map[rune]int)
 
-func addPrefixWithLen(origin string) (res string, length int) {
-	res = "Prefix_" + origin
-	length = len(res)
+	wrd := strings.ToLower(word)
 
-	return res, length
-}
-
-func factorialN(n int) int {
-	if n < 0 {
-		return 1
-	}
-	return factorialN(n-1) * n
-}
-
-type ar2x2 [2][2]int64
-
-func addNumber(a, b ar2x2) ar2x2 {
-	num := ar2x2{}
-	for i := 0; i < 2; i++ {
-		for j := 0; j < 2; j++ {
-			num[i][j] = a[i][j] + b[i][j]
+	for _, val := range wrd {
+		if unicode.IsLetter(val) {
+			count[val]++
 		}
 	}
-	return num
+
+	for char, val := range count {
+		fmt.Printf("%c - %v\n", char, val)
+	}
 }
 
-func (a *ar2x2) addNumber(b ar2x2) {
-	for i := 0; i < 2; i++ {
-		for j := 0; j < 2; j++ {
-			a[i][j] = a[i][j] + b[i][j]
-		}
-	}
+func sliceSorted(words []string) {
+	isSorted := slices.IsSorted(words)
+	fmt.Println("Is sorted : ", isSorted)
 }
 
 func main() {
 
-	if len(os.Args) != 9 {
-		fmt.Println("Needed 8 integer")
-		return
-	}
+	//if len(os.Args) != 9 {
+	//	fmt.Println("Needed 8 integer")
+	//	return
+	//}
+	//
+	//k := [8]int64{}
+	//
+	//for index, i := range os.Args[1:] {
+	//	v, err := strconv.Atoi(i)
+	//	if err != nil {
+	//		fmt.Println(err)
+	//		return
+	//	}
+	//	k[index] = int64(v)
+	//}
+	//a := ar2x2{{k[0], k[1]}, {k[2], k[3]}}
+	//b := ar2x2{{k[4], k[5]}, {k[6], k[7]}}
+	//
+	//fmt.Println("Traditional a+b ", addNumber(a, b))
+	//a.addNumber(b)
+	//fmt.Println("a+b", a)
 
-	k := [8]int64{}
-
-	for index, i := range os.Args[1:] {
-		v, err := strconv.Atoi(i)
-		if err != nil {
-			fmt.Println(err)
-			return
-		}
-		k[index] = int64(v)
-	}
-	a := ar2x2{{k[0], k[1]}, {k[2], k[3]}}
-	b := ar2x2{{k[4], k[5]}, {k[6], k[7]}}
-
-	fmt.Println("Traditional a+b ", addNumber(a, b))
-	a.addNumber(b)
-	fmt.Println("a+b", a)
-
-	if len(os.Args) != 9 {
-		fmt.Errorf("needed 8 integer")
-		return
-	}
-
-	k := [8]int64{}
-
-	for index, i := range os.Args[1:] {
-		v, err := strconv.Atoi(i)
-		if err != nil {
-			fmt.Println(err)
-			return
-		}
-		k[index] = int64(v)
-	}
-	a := ar2x2{{k[0], k[1]}, {k[2], k[3]}}
-	b := ar2x2{{k[4], k[5]}, {k[6], k[7]}}
-
-	fmt.Println("Traditional a+b ", addNumber(a, b))
-	a.addNumber(b)
-	fmt.Println("a+b", a)
+	//if len(os.Args) != 9 {
+	//	fmt.Errorf("needed 8 integer")
+	//	return
+	//}
+	//
+	//fmt.Println("Traditional a+b ", addNumber(a, b))
+	//a.addNumber(b)
+	//fmt.Println("a+b", a)
 
 	urls := []string{
 		"https://golang.com",
@@ -283,6 +267,21 @@ func main() {
 	citys[7] = "Roma"
 	fmt.Println(citys)
 
+	for key, value := range citys {
+		fmt.Printf("Key : %d , value : %d \n", key, value)
+	}
+
+	args := map[string]string{
+		"Apple":    "software/hardware compony",
+		"Google":   "software compony",
+		"openai":   "software compony",
+		"Barclysr": "Bank compony",
+	}
+
+	for _, val := range args {
+		fmt.Printf("value %d ", val)
+	}
+
 	numbers := [10]int32{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 
 	fmt.Println(numbers)
@@ -310,6 +309,72 @@ func main() {
 
 	data := adder()
 	fmt.Println(data(5))
+
+	statement, total := sum_load("Sum of value 2,4,6", 2, 4, 6)
+	fmt.Printf("The value of my sum is %s and total is %s\n", statement, total)
+
+	dataGrade := []Grades{
+		{"Alex", "Duisen", 3.2},
+		{"Marcus", "Heizen", 3.8},
+		{"James", "Madisan", 3.9},
+	}
+
+	isSorted := sort.SliceIsSorted(dataGrade, func(i, j int) bool {
+		return dataGrade[i].grade > dataGrade[j].grade
+	})
+
+	if isSorted {
+		fmt.Println("Is sorted!")
+	} else {
+		fmt.Println("It is not sorted")
+	}
+
+	fmt.Printf("It's grade : %s \n", dataGrade)
+
+	d1()
+	d2()
+	fmt.Println()
+	d3()
+	fmt.Println()
+}
+
+func d1() {
+	for i := 0; i < 10; i++ {
+		defer fmt.Println("Value from defer is ", i)
+	}
+}
+
+func d2() {
+	for i := 0; i < 10; i++ {
+		defer func() {
+			fmt.Print(i, " second ")
+		}()
+		fmt.Print()
+	}
+}
+
+func d3() {
+	for i := 0; i < 3; i++ {
+		defer func(n int) {
+			fmt.Println(n, " three ")
+		}(i)
+	}
+}
+
+type Grades struct {
+	name     string
+	sureName string
+	grade    float64
+}
+
+func sum_load(returnString string, nums ...int) (string, int) {
+	total := 0
+
+	for _, v := range nums {
+		total += v
+	}
+
+	return returnString, total
 }
 
 func someFunction() (int, int) {
