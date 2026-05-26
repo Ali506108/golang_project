@@ -1,8 +1,11 @@
 package main
 
 import (
+	"awesomeProject3/inter"
+	"context"
 	"fmt"
 	"io"
+	"log"
 	"net/http"
 	"slices"
 	"sort"
@@ -196,6 +199,26 @@ func sliceSorted(words []string) {
 }
 
 func main() {
+
+	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
+	defer cancel()
+	emailProv := &inter.Email{Address: "ali@bMachine.com"}
+	smsProv := &inter.Sms{
+		ProvideNumber: "+77020253873",
+	}
+
+	err := inter.Notify(ctx, emailProv, "Hello how are you ? i want to meet with you !")
+
+	if err != nil {
+		log.Fatalf("Критическая ошибка: %v ", err)
+	}
+	if err := inter.Notify(ctx, smsProv, "Hello where are you ?"); err != nil {
+		log.Printf("Warm you : %v ", err)
+	}
+
+	inter.AutoLog(emailProv)
+	inter.AutoLog(smsProv)
+
 
 	//if len(os.Args) != 9 {
 	//	fmt.Println("Needed 8 integer")
